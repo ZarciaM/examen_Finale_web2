@@ -5,6 +5,15 @@ const fs = require('fs');
 const path = require('path');
 const possessionsFilePath = path.join(__dirname, 'routes', 'data.json');
 
+const path = require('path');
+
+// Servir les fichiers statiques React
+app.use(express.static(path.join(__dirname, 'frontend/build')));
+
+// Toutes les requêtes non reconnues redirigent vers `index.html`
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+});
 // Middleware pour gérer les requêtes JSON
 app.use(express.json());
 
