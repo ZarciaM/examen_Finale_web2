@@ -1,0 +1,4 @@
+# .gitignore à la racine du dépôt
+node_modules/
+*.log
+.env
